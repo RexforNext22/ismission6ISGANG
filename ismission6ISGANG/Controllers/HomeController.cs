@@ -14,11 +14,16 @@ using Microsoft.EntityFrameworkCore;
 namespace ismission6ISGANG.Controllers
 {
     public class HomeController : Controller
+
+
     {
 
+<<<<<<< Updated upstream
 
 
         private TasksContext taContext { get; set; }
+=======
+>>>>>>> Stashed changes
 
         public  IActionResult Quadrant()
         {
@@ -54,7 +59,19 @@ namespace ismission6ISGANG.Controllers
             //    ViewBag.Category = taContext.Category.ToList();
             //    return View(tr);
 
+<<<<<<< Updated upstream
         
+=======
+
+       public IActionResult Edit()
+        {
+            return View();
+        }
+
+        public IActionResult Delete()
+        {
+            return View();
+>>>>>>> Stashed changes
         }
     }
 }
