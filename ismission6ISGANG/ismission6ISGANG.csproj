@@ -6,8 +6,12 @@
 
   <ItemGroup>
     <None Remove="Models\" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
   </ItemGroup>
 </Project>
