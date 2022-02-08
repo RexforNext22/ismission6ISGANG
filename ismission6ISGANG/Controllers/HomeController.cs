@@ -15,6 +15,9 @@ namespace ismission6ISGANG.Controllers
 {
     public class HomeController : Controller
     {
+
+
+
         private TasksContext taContext { get; set; }
 
         public  IActionResult Quadrant()
@@ -48,7 +51,7 @@ namespace ismission6ISGANG.Controllers
             //}
             //else
             //{
-            //    ViewBag.Categories = taContext.Category.ToList();
+            //    ViewBag.Category = taContext.Category.ToList();
             //    return View(tr);
 
         
