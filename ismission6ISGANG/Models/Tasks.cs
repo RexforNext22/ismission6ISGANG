@@ -11,11 +11,15 @@ namespace ismission6ISGANG.Models
         [Key]
         [Required]
         public int TaskID { get; set; }
+
         [Required]
         public string Task { get; set; }
+
         public string Date { get; set; }
+
         [Required]
         public int Quadrant { get; set; }
+
         [Required]
         public string Category { get; set; }
         public bool Completed { get; set; }
