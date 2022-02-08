@@ -14,20 +14,29 @@ using Microsoft.EntityFrameworkCore;
 namespace ismission6ISGANG.Controllers
 {
     public class HomeController : Controller
-    {
 
-        private TasksContext taContext { get; set; }
+
+    {
+        private readonly ILogger<HomeController> _logger;
+
+
+        private TasksContext DbContext { get; set; }
 
         public HomeController(TasksContext someName)
         {
-            taContext = someName;
+            DbContext = someName;
         }
 
         [HttpGet]
         public  IActionResult Quadrant()
         {
-            ViewBag.Tasks = taContext.responses.ToList();
-            return View();
+
+            // Pull a list of all tasks from the database using tolist()
+            var lstDataList = DbContext.responses
+                .Include(x => x.Category)
+                .ToList();
+
+            return View(lstDataList);
         }
 
         public IActionResult Index()
@@ -41,24 +50,19 @@ namespace ismission6ISGANG.Controllers
             ViewBag.Category = taContext.Category.ToList();
             return View();
         }
-        //[HttpPost]
-        //public IActionResult TaskForm(Tasks tr)
-        //{
+        public IActionResult TaskForm()
+        {
 
-        //    return View();
+            return View();
+        }
+       public IActionResult Edit()
+        {
+            return View();
+        }
 
-        //    //if (ModelState.IsValid)
-        //    //{
-        //    //    taContext.Add(tr);
-        //    //    taContext.SaveChanges();
-        //    //    return View("Confirmation");
-        //    //}
-        //    //else
-        //    //{
-        //    //    ViewBag.Category = taContext.Category.ToList();
-        //    //    return View(tr);
-
-        
-        //}
+        public IActionResult Delete()
+        {
+            return View();
+        }
     }
 }
