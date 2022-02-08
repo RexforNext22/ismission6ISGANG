@@ -1,10 +1,8 @@
 ﻿using System;
 namespace ismission6ISGANG.Models
 {
-    public class Models
+    public class Tasks
     {
-        public Models()
-        {
-        }
+        public int task { get; set; }
     }
 }
