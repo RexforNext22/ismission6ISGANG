@@ -28,5 +28,10 @@ namespace ismission6ISGANG.Controllers
             return View();
         }
 
+        public IActionResult Tasks()
+        {
+            return View();
+        }
+
     }
 }
