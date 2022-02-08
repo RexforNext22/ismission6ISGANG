@@ -14,15 +14,11 @@ namespace ismission6ISGANG.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        private TasksContext taContext { get; set; }
 
         public  IActionResult Quadrant()
         {
+            ViewBag.Lists = taContext.responses.ToList();
             return View();
         }
 
@@ -35,6 +31,10 @@ namespace ismission6ISGANG.Controllers
         {
             return View();
         }
+        public IActionResult TaskForm()
+        {
 
+            return View();
+        }
     }
 }
