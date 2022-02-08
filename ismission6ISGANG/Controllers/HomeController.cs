@@ -16,9 +16,15 @@ namespace ismission6ISGANG.Controllers
     {
         private TasksContext taContext { get; set; }
 
+        public HomeController(TasksContext someName)
+        {
+            taContext = someName;
+        }
+
+        [HttpGet]
         public  IActionResult Quadrant()
         {
-            ViewBag.Lists = taContext.responses.ToList();
+            ViewBag.Tasks = taContext.responses.ToList();
             return View();
         }
 
