@@ -16,8 +16,6 @@ namespace ismission6ISGANG.Controllers
     public class HomeController : Controller
     {
 
-        private readonly ILogger<HomeController> _logger;
-
         private TasksContext taContext { get; set; }
 
         public HomeController(TasksContext someName)
@@ -37,27 +35,30 @@ namespace ismission6ISGANG.Controllers
             return View();
         }
 
-        public IActionResult Tasks()
+        [HttpGet]
+        public IActionResult TaskForm()
         {
+            ViewBag.Category = taContext.Category.ToList();
             return View();
         }
-        public IActionResult TaskForm(Tasks tr)
-        {
+        //[HttpPost]
+        //public IActionResult TaskForm(Tasks tr)
+        //{
 
-            return View();
+        //    return View();
 
-            //if (ModelState.IsValid)
-            //{
-            //    taContext.Add(tr);
-            //    taContext.SaveChanges();
-            //    return View("Confirmation");
-            //}
-            //else
-            //{
-            //    ViewBag.Category = taContext.Category.ToList();
-            //    return View(tr);
+        //    //if (ModelState.IsValid)
+        //    //{
+        //    //    taContext.Add(tr);
+        //    //    taContext.SaveChanges();
+        //    //    return View("Confirmation");
+        //    //}
+        //    //else
+        //    //{
+        //    //    ViewBag.Category = taContext.Category.ToList();
+        //    //    return View(tr);
 
         
-        }
+        //}
     }
 }
