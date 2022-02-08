@@ -38,7 +38,7 @@ namespace ismission6ISGANG.Controllers
         {
             return View();
         }
-        public IActionResult TaskForm(Tasks tr)
+        public IActionResult TaskForm()
         {
 
             return View();
