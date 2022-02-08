@@ -9,5 +9,3 @@ namespace ismission6ISGANG.Models
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }
-
-blah blah
