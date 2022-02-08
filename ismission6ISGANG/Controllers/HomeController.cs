@@ -47,12 +47,7 @@ namespace ismission6ISGANG.Controllers
         [HttpGet]
         public IActionResult TaskForm()
         {
-            ViewBag.Category = taContext.Category.ToList();
-            return View();
-        }
-        public IActionResult TaskForm()
-        {
-
+            ViewBag.Category = DbContext.Category.ToList();
             return View();
         }
        public IActionResult Edit()
