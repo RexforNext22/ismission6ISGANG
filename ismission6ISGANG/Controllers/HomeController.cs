@@ -17,21 +17,10 @@ namespace ismission6ISGANG.Controllers
 
 
     {
-
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-
-=======
         private readonly ILogger<HomeController> _logger;
->>>>>>> 088bd205eb423f126b9a445e31e39f515764163b
 
-<<<<<<< Updated upstream
-        private TasksContext taContext { get; set; }
-=======
->>>>>>> Stashed changes
-=======
+
         private TasksContext DbContext { get; set; }
->>>>>>> Stashed changes
 
         public HomeController(TasksContext someName)
         {
@@ -41,8 +30,13 @@ namespace ismission6ISGANG.Controllers
         [HttpGet]
         public  IActionResult Quadrant()
         {
-            ViewBag.Tasks = DbContext.responses.ToList();
-            return View();
+
+            // Pull a list of all tasks from the database using tolist()
+            var lstDataList = DbContext.responses
+                .Include(x => x.Category)
+                .ToList();
+
+            return View(lstDataList);
         }
 
         public IActionResult Index()
@@ -58,22 +52,7 @@ namespace ismission6ISGANG.Controllers
         {
 
             return View();
-
-            //if (ModelState.IsValid)
-            //{
-            //    taContext.Add(tr);
-            //    taContext.SaveChanges();
-            //    return View("Confirmation");
-            //}
-            //else
-            //{
-            //    ViewBag.Category = taContext.Category.ToList();
-            //    return View(tr);
-
-<<<<<<< Updated upstream
-        
-=======
-
+        }
        public IActionResult Edit()
         {
             return View();
@@ -82,7 +61,6 @@ namespace ismission6ISGANG.Controllers
         public IActionResult Delete()
         {
             return View();
->>>>>>> Stashed changes
         }
     }
 }
