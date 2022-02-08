@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Author: Ryan Pinkney, Jacob Poor, Tanner Davis, Kevin Gutierrez
+// This is the controller for our site.
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;

@@ -2,43 +2,87 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "View Quadrant";
 }
 
-@ViewData["Title"] = "View Quadrant";
 
 
-<div class="container">
-    <div class="row">
-        <div class="co;">
+<div class="container border">
+    <div class="row border">
+        <div class="col border">
             <h3>Quadrant 1:</h3>
         </div>
-        <div class="col">
+        <div class="col border">
             <h3>Quadrant 2:</h3>
         </div>
 
     </div>
-    <div class="row">
-        <div class="co;">
+    <div class="row border">
+        <div class="col border">
+            <table class="table table-bordered table-striped">
+
+                <thread class="font-weight-bold">
+
+                    <!--Columns-->
+                    <tr>
+                        <td>Task Name:</td>
+                        <td>Due Date:</td>
+                        <td>Quadrant:</td>
+                        <td>Category:</td>
+                        <td>Rating:</td>
+                        <td>Completed</td>
+                    </tr>
+
+                </thread>
+
+                <tbody>
+
+                    <!--Rows-->
+                    @foreach (var iCount in Model)
+                    {<!-- Model needs to be capitalized-->
+
+                        <tr>
+                            <td>@iCount.</td>
+                            <td>@iCount.</td>
+                            <td>@iCount.</td>
+                            <td>@iCount.</td>
+                            <td>@iCount.</td>
+                            <td>@iCount.</td>
+
+                            <!--Buttons to delete and edit that pass the id as a parameter in the url-->
+                            <td><a asp-controller="Home" asp-action="Edit" asp-route-id="">Edit</a></td>
+                            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="">Delete</a></td>
+                        </tr>
+
+                    }
+
+
+
+                </tbody>
+
+
+
+
 
         </div>
-        <div class="col">
+        <div class="col border">
 
         </div>
 
     </div>
-    <div class="row">
-        <div class="co;">
+    <div class="row border">
+        <div class="col border">
             <h3>Quadrant 3:</h3>
         </div>
-        <div class="col">
+        <div class="col border">
             <h3>Quadrant 4:</h3>
         </div>
 
     </div>
-    <div class="row">
-        <div class="co;">
+    <div class="row border">
+        <div class="col border">
         </div>
-        <div class="col">
+        <div class="col border">
 
         </div>
 
