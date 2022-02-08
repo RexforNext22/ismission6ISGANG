@@ -1,5 +1,52 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
+    ViewData["Title"] = "Add Task";
 }
+
+<div>
+    <form method="post">
+
+        <label asp-for="Task">Task: </label>
+        <input asp-for="Task" />
+        <br />
+
+        <label asp-for="Date">Date: </label>
+        <input asp-for="Date" />
+        <br />
+
+        <label asp-for="Quadrant">Quadrant: </label>
+        <select asp-for="Quadrant" />
+            <option value="1">Quadrant 1</option>
+            <option value="2">Quadrant 2</option>
+            <option value="3">Quadrant 3</option>
+            <option value="4">Quadrant 4</option>
+        </select>
+
+        <br />
+
+        <label asp-for="CategoryId">Category: </label>
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Category)
+            {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select>
+
+        <br />
+        <label asp-for="Completed">Completed:</label>
+        <select asp-for="Edited">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <br />
+        <br />
+        <button type="submit">Add Task</button>
+    </form>
+    <br />
+    <div asp-validation-summary="All"></div>
+</div>
+
+
+
+
