@@ -16,7 +16,7 @@ namespace ismission6ISGANG.Controllers
     public class HomeController : Controller
     {
 
-
+        private readonly ILogger<HomeController> _logger;
 
         private TasksContext taContext { get; set; }
 
