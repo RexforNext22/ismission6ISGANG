@@ -20,8 +20,13 @@ namespace ismission6ISGANG.Models
         [Required]
         public int Quadrant { get; set; }
 
+<<<<<<< Updated upstream
+=======
+        // create foreign key to link to category table
+>>>>>>> Stashed changes
         [Required]
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
         public bool Completed { get; set; }
     }
 }
