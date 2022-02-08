@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Author: Ryan Pinkney, Jacob Poor, Tanner Davis, Kevin Gutierrez
+// This is the model for the app.
+
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ismission6ISGANG.Models
