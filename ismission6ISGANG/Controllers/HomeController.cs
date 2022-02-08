@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ismission6ISGANG.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ismission6ISGANG.Controllers
 {
@@ -18,8 +19,11 @@ namespace ismission6ISGANG.Controllers
 
         public  IActionResult Quadrant()
         {
-            ViewBag.Lists = taContext.responses.ToList();
-            return View();
+            var applications = taContext.responses
+                .Include(x => x.Category).ToList();
+
+
+            return View(applications);
         }
 
         public IActionResult Index()
@@ -33,18 +37,21 @@ namespace ismission6ISGANG.Controllers
         }
         public IActionResult TaskForm(Tasks tr)
         {
-            if (ModelState.IsValid)
-            {
-                taContext.Add(tr);
-                taContext.SaveChanges();
-                return View("Confirmation");
-            }
-            else
-            {
-                ViewBag.Categories = taContext.Category.ToList();
-                return View(tr);
 
-            }
+            return View();
+
+            //if (ModelState.IsValid)
+            //{
+            //    taContext.Add(tr);
+            //    taContext.SaveChanges();
+            //    return View("Confirmation");
+            //}
+            //else
+            //{
+            //    ViewBag.Categories = taContext.Category.ToList();
+            //    return View(tr);
+
+        
         }
     }
 }
