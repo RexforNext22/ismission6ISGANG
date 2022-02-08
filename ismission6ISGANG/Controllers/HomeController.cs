@@ -18,20 +18,27 @@ namespace ismission6ISGANG.Controllers
 
     {
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 
+=======
+        private readonly ILogger<HomeController> _logger;
+>>>>>>> 088bd205eb423f126b9a445e31e39f515764163b
 
         private TasksContext taContext { get; set; }
 =======
 >>>>>>> Stashed changes
 
+        public HomeController(TasksContext someName)
+        {
+            taContext = someName;
+        }
+
+        [HttpGet]
         public  IActionResult Quadrant()
         {
-            var applications = taContext.responses
-                .Include(x => x.Category).ToList();
-
-
-            return View(applications);
+            ViewBag.Tasks = taContext.responses.ToList();
+            return View();
         }
 
         public IActionResult Index()
