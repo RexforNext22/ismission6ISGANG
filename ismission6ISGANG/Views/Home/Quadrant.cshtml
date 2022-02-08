@@ -49,12 +49,12 @@
                             <td>@iCount.Task</td>
                             <td>@iCount.Date</td>
                             <td>@iCount.Quadrant</td>
-                            <td>@iCount.Category</td>
+                            <td>@iCount.Category.CategoryName</td>
                             <td>@iCount.Completed</td>
 
                             <!--Buttons to delete and edit that pass the id as a parameter in the url-->
-                            <td><a asp-controller="Home" asp-action="Edit" asp-route-id="TaskID">Edit</a></td>
-                            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="TaskID">Delete</a></td>
+                            <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@iCount.TaskID">Edit</a></td>
+                            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@iCount.TaskID">Delete</a></td>
                         </tr>
 
                     }

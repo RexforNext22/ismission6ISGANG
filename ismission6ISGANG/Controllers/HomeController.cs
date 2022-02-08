@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ismission6ISGANG.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ismission6ISGANG.Controllers
 {
     public class HomeController : Controller
     {
+
+
+
         private TasksContext taContext { get; set; }
 
         public HomeController(TasksContext someName)
@@ -39,18 +43,21 @@ namespace ismission6ISGANG.Controllers
         }
         public IActionResult TaskForm(Tasks tr)
         {
-            if (ModelState.IsValid)
-            {
-                taContext.Add(tr);
-                taContext.SaveChanges();
-                return View("Confirmation");
-            }
-            else
-            {
-                ViewBag.Categories = taContext.Category.ToList();
-                return View(tr);
 
-            }
+            return View();
+
+            //if (ModelState.IsValid)
+            //{
+            //    taContext.Add(tr);
+            //    taContext.SaveChanges();
+            //    return View("Confirmation");
+            //}
+            //else
+            //{
+            //    ViewBag.Category = taContext.Category.ToList();
+            //    return View(tr);
+
+        
         }
     }
 }
