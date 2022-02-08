@@ -25,19 +25,23 @@ namespace ismission6ISGANG.Controllers
         private readonly ILogger<HomeController> _logger;
 >>>>>>> 088bd205eb423f126b9a445e31e39f515764163b
 
+<<<<<<< Updated upstream
         private TasksContext taContext { get; set; }
 =======
+>>>>>>> Stashed changes
+=======
+        private TasksContext DbContext { get; set; }
 >>>>>>> Stashed changes
 
         public HomeController(TasksContext someName)
         {
-            taContext = someName;
+            DbContext = someName;
         }
 
         [HttpGet]
         public  IActionResult Quadrant()
         {
-            ViewBag.Tasks = taContext.responses.ToList();
+            ViewBag.Tasks = DbContext.responses.ToList();
             return View();
         }
 
