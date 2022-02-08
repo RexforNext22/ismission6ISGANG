@@ -31,10 +31,20 @@ namespace ismission6ISGANG.Controllers
         {
             return View();
         }
-        public IActionResult TaskForm()
+        public IActionResult TaskForm(Tasks tr)
         {
+            if (ModelState.IsValid)
+            {
+                taContext.Add(tr);
+                taContext.SaveChanges();
+                return View("Confirmation");
+            }
+            else
+            {
+                ViewBag.Categories = taContext.Category.ToList();
+                return View(tr);
 
-            return View();
+            }
         }
     }
 }
