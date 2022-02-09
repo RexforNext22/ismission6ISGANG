@@ -50,14 +50,42 @@ namespace ismission6ISGANG.Controllers
             ViewBag.Category = DbContext.Category.ToList();
             return View();
         }
-       public IActionResult Edit()
+
+        [HttpGet]
+        public IActionResult Edit(int TaskID)
         {
-            return View();
+            ViewBag.Category = DbContext.Category.ToList();
+
+            var application = DbContext.responses.Single(x => x.TaskID == TaskID);
+
+            return View("Tasks", application);
         }
 
-        public IActionResult Delete()
+        [HttpPost]
+        public IActionResult Edit(Tasks Inst)
         {
-            return View();
+
+            DbContext.Update(Inst);
+            DbContext.SaveChanges();
+
+            return RedirectToAction("Tasks");
+
+
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int TaskID)
+        {
+            var tasks = DbContext.responses.Single(x => x.TaskID == TaskID);
+            return View(tasks);
+        }
+        [HttpPost]
+        public IActionResult Delete(Tasks ar)
+        {
+            DbContext.responses.Remove(ar);
+            DbContext.SaveChanges();
+
+            return RedirectToAction("Tasks");
         }
     }
 }
