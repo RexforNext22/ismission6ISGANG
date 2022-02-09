@@ -47,6 +47,7 @@ namespace ismission6ISGANG.Controllers
             return View();
         }
 
+        // Get method for the taskform
         [HttpGet]
         public IActionResult TaskForm()
         {
@@ -54,6 +55,7 @@ namespace ismission6ISGANG.Controllers
             return View();
         }
 
+        // Get method for the edit
         [HttpGet]
         public IActionResult Edit(int TaskID)
         {
@@ -64,6 +66,7 @@ namespace ismission6ISGANG.Controllers
             return View("Tasks", application);
         }
 
+        // Post method for the edit
         [HttpPost]
         public IActionResult Edit(Tasks Inst)
         {
@@ -76,12 +79,15 @@ namespace ismission6ISGANG.Controllers
 
         }
 
+        // Get method for the delete
         [HttpGet]
         public IActionResult Delete(int TaskID)
         {
             var tasks = DbContext.responses.Single(x => x.TaskID == TaskID);
             return View(tasks);
         }
+
+        // Post method for the delete
         [HttpPost]
         public IActionResult Delete(Tasks ar)
         {
