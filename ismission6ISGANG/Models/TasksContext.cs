@@ -9,11 +9,14 @@ namespace ismission6ISGANG.Models
         {
         }
 
+        // references the responses and category tables
         public DbSet<Tasks> responses { get; set; }
         public DbSet<Category> Category { get; set; }
 
+        
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            // seed the category table so that id's can be referenced in the main responses table
             mb.Entity<Category>().HasData(
                 new Category { CategoryId = 1, CategoryName = "Home" },
                 new Category { CategoryId = 2, CategoryName = "School"},
@@ -21,6 +24,7 @@ namespace ismission6ISGANG.Models
                 new Category { CategoryId = 4, CategoryName = "Church"}
             );
 
+            // seed the responses table to display on the quadrants page
             mb.Entity<Tasks>().HasData(
                 new Tasks
                 {
