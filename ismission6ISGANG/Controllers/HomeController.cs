@@ -63,7 +63,7 @@ namespace ismission6ISGANG.Controllers
 
             var application = DbContext.responses.Single(x => x.TaskID == id);
 
-            return View("TaskForm", application);
+            return View(application);
         }
 
         // Post method for the edit
@@ -81,9 +81,9 @@ namespace ismission6ISGANG.Controllers
 
         // Get method for the delete
         [HttpGet]
-        public IActionResult Delete(int TaskID)
+        public IActionResult Delete(int id)
         {
-            var tasks = DbContext.responses.Single(x => x.TaskID == TaskID);
+            var tasks = DbContext.responses.Single(x => x.TaskID == id);
             return View(tasks);
         }
 
@@ -94,7 +94,7 @@ namespace ismission6ISGANG.Controllers
             DbContext.responses.Remove(ar);
             DbContext.SaveChanges();
 
-            return RedirectToAction("Tasks");
+            return RedirectToAction("Quadrant");
         }
     }
 }
