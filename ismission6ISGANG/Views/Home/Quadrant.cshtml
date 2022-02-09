@@ -2,10 +2,12 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+
+    // Set the tab title
     ViewData["Title"] = "View Quadrant";
 }
 <!--// Author: Ryan Pinkney, Jacob Poor, Tanner Davis, Kevin Gutierrez
-// This is to view the stuff.-->
+This is to view the stuff.-->
 
 
 <!--Bring in the bag of tasks-->
@@ -23,15 +25,17 @@
 
     </div>
     <div class="row border">
-        <div class="col border">
-            <table class="table table-bordered table-striped">
+        <div class="col-6 border"><br />
+
+            <!--Table to display everything in quadrant 1-->
+            <table class="table table-bordered table-striped  table-sm">
 
                 <thread class="font-weight-bold">
 
                     <!--Columns-->
                     <tr>
-                        <td>Task Name:</td>
-                        <td>Due Date:</td>
+                        <td class="col-md-2">Task Name:</td>
+                        <td class="col-md-3">Due Date:</td>
                         <td>Quadrant:</td>
                         <td>Category:</td>
                         <td>Completed</td>
@@ -46,7 +50,8 @@
                     <!--Rows-->
                     @foreach (var iCount in Model)
                     {<!-- Model needs to be capitalized-->
-
+                        if (@iCount.Quadrant == 1)
+                        {
                         <tr>
                             <td>@iCount.Task</td>
                             <td>@iCount.Date</td>
@@ -59,6 +64,7 @@
                             <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@iCount.TaskID">Delete</a></td>
                         </tr>
 
+                        }
                     }
 
 
@@ -70,14 +76,17 @@
 
             </table>
         </div>
-        <div class="col border">
-            <table class="table table-bordered table-striped">
+        <div class="col-6 border">
+            <br />
+
+            <!--Table to display everything in quadrant 2-->
+            <table class="table table-bordered table-striped table-sm">
 
                 <thread class="font-weight-bold">
 
                     <!--Columns-->
                     <tr>
-                        <td>Task Name:</td>
+                        <td class="col-md-2">Task Name:</td>
                         <td>Due Date:</td>
                         <td>Quadrant:</td>
                         <td>Category:</td>
@@ -93,21 +102,22 @@
                     <!--Rows-->
                     @foreach (var iCount in Model)
                     {<!-- Model needs to be capitalized-->
+                        if (@iCount.Quadrant == 2)
+                        {
+                            <tr>
+                                <td>@iCount.Task</td>
+                                <td>@iCount.Date</td>
+                                <td>@iCount.Quadrant</td>
+                                <td>@iCount.Category.CategoryName</td>
+                                <td>@iCount.Completed</td>
 
-                        <tr>
-                            <td>@iCount.Task</td>
-                            <td>@iCount.Date</td>
-                            <td>@iCount.Quadrant</td>
-                            <td>@iCount.Category.CategoryName</td>
-                            <td>@iCount.Completed</td>
+                                <!--Buttons to delete and edit that pass the id as a parameter in the url-->
+                                <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@iCount.TaskID">Edit</a></td>
+                                <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@iCount.TaskID">Delete</a></td>
+                            </tr>
 
-                            <!--Buttons to delete and edit that pass the id as a parameter in the url-->
-                            <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@iCount.TaskID">Edit</a></td>
-                            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@iCount.TaskID">Delete</a></td>
-                        </tr>
-
+                        }
                     }
-
 
 
                 </tbody>
@@ -129,14 +139,17 @@
 
     </div>
     <div class="row border">
-        <div class="col border">
-            <table class="table table-bordered table-striped">
+        <div class="col-6 border">
+            <br />
+
+            <!--Table to display everything in quadrant 3-->
+            <table class="table table-bordered table-striped table-sm">
 
                 <thread class="font-weight-bold">
 
                     <!--Columns-->
                     <tr>
-                        <td>Task Name:</td>
+                        <td class="col-md-2">Task Name:</td>
                         <td>Due Date:</td>
                         <td>Quadrant:</td>
                         <td>Category:</td>
@@ -152,21 +165,22 @@
                     <!--Rows-->
                     @foreach (var iCount in Model)
                     {<!-- Model needs to be capitalized-->
+                        if (@iCount.Quadrant == 3)
+                        {
+                            <tr>
+                                <td>@iCount.Task</td>
+                                <td>@iCount.Date</td>
+                                <td>@iCount.Quadrant</td>
+                                <td>@iCount.Category.CategoryName</td>
+                                <td>@iCount.Completed</td>
 
-                        <tr>
-                            <td>@iCount.Task</td>
-                            <td>@iCount.Date</td>
-                            <td>@iCount.Quadrant</td>
-                            <td>@iCount.Category.CategoryName</td>
-                            <td>@iCount.Completed</td>
+                                <!--Buttons to delete and edit that pass the id as a parameter in the url-->
+                                <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@iCount.TaskID">Edit</a></td>
+                                <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@iCount.TaskID">Delete</a></td>
+                            </tr>
 
-                            <!--Buttons to delete and edit that pass the id as a parameter in the url-->
-                            <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@iCount.TaskID">Edit</a></td>
-                            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@iCount.TaskID">Delete</a></td>
-                        </tr>
-
+                        }
                     }
-
 
 
                 </tbody>
@@ -176,14 +190,17 @@
 
             </table>
         </div>
-        <div class="col border">
-            <table class="table table-bordered table-striped">
+        <div class="col-6 border">
+            <br />
+
+            <!--Table to display everything in quadrant 4-->
+            <table class="table table-bordered table-striped table-sm">
 
                 <thread class="font-weight-bold">
 
                     <!--Columns-->
                     <tr>
-                        <td>Task Name:</td>
+                        <td class="col-md-2">Task Name:</td>
                         <td>Due Date:</td>
                         <td>Quadrant:</td>
                         <td>Category:</td>
@@ -199,21 +216,22 @@
                     <!--Rows-->
                     @foreach (var iCount in Model)
                     {<!-- Model needs to be capitalized-->
+                        if (@iCount.Quadrant == 4)
+                        {
+                            <tr>
+                                <td>@iCount.Task</td>
+                                <td>@iCount.Date</td>
+                                <td>@iCount.Quadrant</td>
+                                <td>@iCount.Category.CategoryName</td>
+                                <td>@iCount.Completed</td>
 
-                        <tr>
-                            <td>@iCount.Task</td>
-                            <td>@iCount.Date</td>
-                            <td>@iCount.Quadrant</td>
-                            <td>@iCount.Category.CategoryName</td>
-                            <td>@iCount.Completed</td>
+                                <!--Buttons to delete and edit that pass the id as a parameter in the url-->
+                                <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@iCount.TaskID">Edit</a></td>
+                                <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@iCount.TaskID">Delete</a></td>
+                            </tr>
 
-                            <!--Buttons to delete and edit that pass the id as a parameter in the url-->
-                            <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@iCount.TaskID">Edit</a></td>
-                            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@iCount.TaskID">Delete</a></td>
-                        </tr>
-
+                        }
                     }
-
 
 
                 </tbody>
@@ -222,6 +240,7 @@
 
 
             </table>
+
         </div>
 
     </div>

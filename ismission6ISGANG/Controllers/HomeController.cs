@@ -19,7 +19,7 @@ namespace ismission6ISGANG.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-
+        // Set the DbContext
         private TasksContext DbContext { get; set; }
 
         public HomeController(TasksContext someName)
@@ -27,6 +27,7 @@ namespace ismission6ISGANG.Controllers
             DbContext = someName;
         }
 
+        // Get method to return the quadrant view
         [HttpGet]
         public  IActionResult Quadrant()
         {
@@ -36,28 +37,36 @@ namespace ismission6ISGANG.Controllers
                 .Include(x => x.Category)
                 .ToList();
 
+            // Return the list of data
             return View(lstDataList);
         }
 
+        // Get method to return the index
         public IActionResult Index()
         {
             return View();
         }
 
+        // Get method to return the tasks view
         public IActionResult Tasks()
         {
             return View();
         }
+
+        // get method to return the taskform
         public IActionResult TaskForm()
         {
 
             return View();
         }
+
+        // get method for edit
        public IActionResult Edit()
         {
             return View();
         }
 
+        // get method for delete
         public IActionResult Delete()
         {
             return View();
