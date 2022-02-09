@@ -57,13 +57,13 @@ namespace ismission6ISGANG.Controllers
 
         // Get method for the edit
         [HttpGet]
-        public IActionResult Edit(int TaskID)
+        public IActionResult Edit(int id)
         {
             ViewBag.Category = DbContext.Category.ToList();
 
-            var application = DbContext.responses.Single(x => x.TaskID == TaskID);
+            var application = DbContext.responses.Single(x => x.TaskID == id);
 
-            return View("Tasks", application);
+            return View("TaskForm", application);
         }
 
         // Post method for the edit
@@ -74,7 +74,7 @@ namespace ismission6ISGANG.Controllers
             DbContext.Update(Inst);
             DbContext.SaveChanges();
 
-            return RedirectToAction("Tasks");
+            return RedirectToAction("Quadrant");
 
 
         }
