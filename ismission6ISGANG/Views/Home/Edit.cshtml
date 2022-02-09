@@ -18,6 +18,10 @@ This is to edit the stuff.-->
 <div>
     <form method="post" style="margin: 0 auto; width: 250px;">
 
+        <!--Hidden field for the taskid-->
+        <input type="hidden" asp-for="TaskID" />
+
+
         <!--Field to input the task-->
         <label asp-for="Task">Task: </label>
         <input asp-for="Task" />
