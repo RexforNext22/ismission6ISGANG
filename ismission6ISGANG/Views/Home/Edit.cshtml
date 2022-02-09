@@ -1,0 +1,81 @@
+﻿<!--// Author: Ryan Pinkney, Jacob Poor, Tanner Davis, Kevin Gutierrez
+This is to edit the stuff.-->
+
+@{
+    // Set the tab title
+    ViewData["Title"] = "Add Task";
+}
+
+<!--Import the model-->
+@model ismission6ISGANG.Models.Tasks
+<!--Photo-->
+<div class="text-center">
+    <img class="rounded" src="~/img/pic.png" height="500px" />
+</div>
+<br />
+
+<!--Form to add a task-->
+<div>
+    <form method="post" style="margin: 0 auto; width: 250px;">
+
+        <!--Field to input the task-->
+        <label asp-for="Task">Task: </label>
+        <input asp-for="Task" />
+        <br />
+
+        <!--Date Field-->
+        <label asp-for="Date">Date: </label>
+        <input asp-for="Date" />
+        <br />
+
+        <!--Qudrant Field-->
+        <label asp-for="Quadrant">Quadrant: </label>
+        <select asp-for="Quadrant">
+            <option value="1">Quadrant 1</option>
+            <option value="2">Quadrant 2</option>
+            <option value="3">Quadrant 3</option>
+            <option value="4">Quadrant 4</option>
+        </select>
+
+        <br />
+
+        <!--Category Field-->
+        <label asp-for="CategoryId">Category: </label>
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Category)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select>
+
+        <br />
+
+        <!--Completed field-->
+        <label asp-for="Completed">Completed:</label>
+        <select asp-for="Completed">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <br />
+        <br />
+        <!--Submit button-->
+        <button type="submit">Edit</button>
+    </form>
+    <br />
+
+    <!--Show validation errors-->
+    <div asp-validation-summary="All"></div>
+</div>
+
+<!--Add extra white space-->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
