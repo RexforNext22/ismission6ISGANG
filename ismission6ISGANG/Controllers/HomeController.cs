@@ -35,6 +35,7 @@ namespace ismission6ISGANG.Controllers
             // Pull a list of all tasks from the database using tolist()
             var lstDataList = DbContext.responses
                 .Include(x => x.Category)
+                .Where(x => x.Completed == false)
                 .ToList();
 
             // Return the list of data
@@ -55,6 +56,24 @@ namespace ismission6ISGANG.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult TaskForm(Tasks ar)
+        {
+            ViewBag.Category = DbContext.Category.ToList();
+            //checks to see if submit is valid if so to submit
+            if (ModelState.IsValid)
+            {
+                DbContext.Add(ar);
+                DbContext.SaveChanges();
+                return RedirectToAction("Quadrant", ar);
+            }
+            else
+            {
+
+                return View();
+
+            }
+        }
         // Get method for the edit
         [HttpGet]
         public IActionResult Edit(int id)
